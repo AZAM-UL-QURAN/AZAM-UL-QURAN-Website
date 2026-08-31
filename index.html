@@ -5,392 +5,727 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="description"
+        content="AZAM-UL-QURAN Online Academy - Learn Quran online with qualified teachers through one-to-one live classes.">
+
     <title>AZAM-UL-QURAN Online Academy</title>
 
     <style>
 
+        /* =========================
+           GLOBAL
+        ========================== */
+
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
             scroll-behavior: smooth;
         }
 
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f7fff9;
-            color: #333;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f7faf8;
+            color: #26332d;
+            line-height: 1.6;
         }
 
-        /* NAVIGATION */
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================== */
 
         nav {
-            background-color: #063d24;
-            padding: 18px 10px;
-            text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            background: rgba(4, 53, 31, 0.97);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
         }
 
-        nav a {
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .logo {
+            color: #d4af37;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: .5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-links a {
             color: white;
-            text-decoration: none;
-            margin: 0 14px;
-            font-size: 17px;
-            font-weight: bold;
+            padding: 10px 13px;
+            border-radius: 7px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: .3s;
         }
 
-        nav a:hover {
+        .nav-links a:hover {
+            color: #d4af37;
+            background: rgba(255,255,255,.08);
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, rgba(11,107,58,.96), rgba(3,57,34,.98));
+            color: white;
+            text-align: center;
+            padding: 95px 20px 90px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(212,175,55,.3);
+            border-radius: 50%;
+            top: -120px;
+            left: -100px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border: 1px solid rgba(212,175,55,.2);
+            border-radius: 50%;
+            bottom: -250px;
+            right: -120px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            color: #063d24;
+            background: #d4af37;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 6vw, 58px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
             color: #d4af37;
         }
 
-        /* HOME */
-
-        header {
-            background-color: #0b6b3a;
-            color: white;
-            text-align: center;
-            padding: 55px 20px;
-        }
-
-        header h1 {
-            font-size: 40px;
-            margin: 10px 0;
-        }
-
-        header p {
+        .hero p {
             font-size: 20px;
-            margin-top: 15px;
+            max-width: 700px;
+            margin: 10px auto;
+            color: #f2f8f4;
         }
 
-        /* POSTER */
+        .hero-buttons {
+            margin-top: 32px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 9px;
+            font-weight: 700;
+            margin: 6px;
+            transition: .3s;
+        }
+
+        .primary-btn {
+            background: #d4af37;
+            color: #063d24;
+        }
+
+        .secondary-btn {
+            border: 1px solid white;
+            color: white;
+        }
+
+        .primary-btn:hover,
+        .secondary-btn:hover {
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           POSTER
+        ========================== */
 
         .poster {
-            background-color: white;
+            padding: 60px 20px;
             text-align: center;
-            padding: 35px 15px;
+            background: white;
         }
 
         .poster img {
-            width: 420px;
+            width: 430px;
             max-width: 95%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px #aaa;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0,0,0,.16);
+            transition: .4s;
         }
 
-        /* ADMISSION BANNER */
+        .poster img:hover {
+            transform: translateY(-5px);
+        }
+
+
+        /* =========================
+           ADMISSION BANNER
+        ========================== */
 
         .admission-banner {
-            background: linear-gradient(
-                135deg,
-                #0b6b3a,
-                #063d24
-            );
-
+            background: linear-gradient(135deg, #063d24, #0b6b3a);
             color: white;
             text-align: center;
-            padding: 35px 20px;
-            border-top: 5px solid #d4af37;
-            border-bottom: 5px solid #d4af37;
+            padding: 50px 20px;
+            border-top: 4px solid #d4af37;
+            border-bottom: 4px solid #d4af37;
         }
 
-        .admission-banner .icon {
-            font-size: 50px;
-            margin-bottom: 10px;
+        .admission-icon {
+            font-size: 45px;
         }
 
         .admission-banner h2 {
             color: #d4af37;
-            font-size: 36px;
-            margin: 10px 0;
+            font-size: clamp(28px, 5vw, 42px);
+            margin: 8px 0;
         }
 
         .admission-banner p {
-            font-size: 20px;
-            margin: 10px 0;
+            font-size: 18px;
+            margin: 7px;
         }
 
-        .free-trial {
+        .trial {
             display: inline-block;
-            margin-top: 15px;
-            background-color: #d4af37;
-            color: white;
-            padding: 13px 25px;
-            border-radius: 8px;
-            font-size: 19px;
-            font-weight: bold;
+            margin-top: 18px;
+            background: #d4af37;
+            color: #063d24;
+            padding: 13px 24px;
+            border-radius: 30px;
+            font-weight: 800;
         }
 
-        /* SECTIONS */
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================== */
 
         section {
-            padding: 55px 20px;
+            padding: 80px 20px;
+        }
+
+        .section-title {
             text-align: center;
+            margin-bottom: 45px;
         }
 
-        section h2 {
+        .section-title span {
+            color: #d4af37;
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
             color: #0b6b3a;
-            font-size: 30px;
-            margin-bottom: 25px;
+            font-size: 36px;
+            margin-top: 5px;
         }
 
-        /* COURSES */
+        .section-title p {
+            max-width: 650px;
+            margin: 10px auto;
+            color: #68756e;
+        }
+
+
+        /* =========================
+           COURSES
+        ========================== */
 
         .courses {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: auto;
         }
 
         .course {
-            background-color: white;
-            width: 230px;
-            min-height: 150px;
-            padding: 25px 15px;
-            border-radius: 12px;
-            box-shadow: 0 3px 12px #ccc;
-            font-size: 19px;
-            font-weight: bold;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            transition: 0.3s;
-        }
-
-        .course-icon {
-            font-size: 38px;
-            margin-bottom: 12px;
+            background: white;
+            padding: 32px 22px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #e7eee9;
+            box-shadow: 0 8px 25px rgba(0,0,0,.06);
+            transition: .35s;
         }
 
         .course:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 18px #aaa;
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(0,0,0,.11);
         }
 
-        /* FEATURES */
+        .course-icon {
+            width: 70px;
+            height: 70px;
+            margin: auto auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eaf7ee;
+            border-radius: 50%;
+            font-size: 34px;
+        }
+
+        .course h3 {
+            color: #0b6b3a;
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .course p {
+            color: #6d7771;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================== */
 
         #features {
-            background-color: #eaf7ee;
+            background: #edf7f0;
+        }
+
+        .features-grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
         }
 
         .feature {
-            background-color: white;
-            max-width: 650px;
-            margin: 14px auto;
-            padding: 18px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px #ddd;
-            font-size: 18px;
-            font-weight: bold;
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0,0,0,.06);
+            font-weight: 700;
+            transition: .3s;
         }
 
-        /* ADMISSION */
+        .feature:hover {
+            transform: translateX(5px);
+        }
+
+
+        /* =========================
+           ADMISSION FORM
+        ========================== */
 
         #admission {
-            background-color: #0b6b3a;
+            background: #063d24;
+        }
+
+        #admission .section-title h2 {
             color: white;
         }
 
-        #admission h2 {
-            color: #d4af37;
+        #admission .section-title p {
+            color: #dce9e1;
         }
 
         .admission-box {
-            background-color: white;
-            color: #333;
-            max-width: 650px;
+            max-width: 720px;
             margin: auto;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,.2);
         }
 
         .admission-box h3 {
+            text-align: center;
             color: #0b6b3a;
             font-size: 25px;
-            margin-top: 0;
+            margin-bottom: 10px;
         }
 
-        .admission-box p {
-            color: #555;
-            line-height: 1.6;
+        .admission-box > p {
+            text-align: center;
+            color: #68756e;
+            margin-bottom: 5px;
         }
-
-        /* ADMISSION FORM */
 
         .admission-form {
             margin-top: 30px;
-            text-align: left;
         }
 
-        .admission-form label {
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
             display: block;
             color: #0b6b3a;
-            font-weight: bold;
+            font-weight: 700;
             margin-bottom: 7px;
         }
 
-        .admission-form input,
-        .admission-form select,
-        .admission-form textarea {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
-            padding: 13px;
-            margin-bottom: 18px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            padding: 14px;
+            border: 1px solid #d7dfda;
+            border-radius: 9px;
+            outline: none;
             font-size: 16px;
-            font-family: Arial, sans-serif;
+            transition: .3s;
+            font-family: inherit;
         }
 
-        .admission-form textarea {
-            min-height: 110px;
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #0b6b3a;
+            box-shadow: 0 0 0 3px rgba(11,107,58,.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
             resize: vertical;
         }
 
         .submit-btn {
             width: 100%;
-            background-color: #25D366;
-            color: white;
             border: none;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 9px;
+            background: #25D366;
+            color: white;
             font-size: 17px;
-            font-weight: bold;
+            font-weight: 800;
             cursor: pointer;
+            transition: .3s;
         }
 
         .submit-btn:hover {
-            background-color: #128C7E;
+            background: #128C7E;
+            transform: translateY(-2px);
         }
 
-        /* CONTACT */
+
+        /* =========================
+           CONTACT
+        ========================== */
 
         #contact {
-            background-color: white;
+            background: white;
+            text-align: center;
+        }
+
+        .contact-card {
+            max-width: 600px;
+            margin: auto;
+            background: #f7faf8;
+            padding: 35px;
+            border-radius: 18px;
+        }
+
+        .phone {
+            font-size: 22px;
+            color: #0b6b3a;
+            font-weight: 800;
+            margin: 15px 0;
         }
 
         .whatsapp {
             display: inline-block;
-            background-color: #25D366;
+            background: #25D366;
             color: white;
-            padding: 15px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 15px;
+            padding: 14px 26px;
+            border-radius: 9px;
+            font-weight: 800;
+            transition: .3s;
         }
 
         .whatsapp:hover {
-            opacity: 0.85;
+            transform: translateY(-3px);
         }
 
-        /* FOOTER */
+
+        /* =========================
+           FOOTER
+        ========================== */
 
         footer {
-            background-color: #063d24;
-            color: white;
+            background: #032719;
+            color: #dce9e1;
             text-align: center;
-            padding: 28px 15px;
+            padding: 35px 20px;
         }
 
         footer h3 {
             color: #d4af37;
+            margin-bottom: 8px;
         }
 
-        /* MOBILE */
+        footer p {
+            margin: 5px;
+        }
 
-        @media (max-width: 600px) {
 
-            nav a {
-                display: inline-block;
-                margin: 7px;
-                font-size: 15px;
+        /* =========================
+           FLOATING WHATSAPP
+        ========================== */
+
+        .floating-whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 2000;
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            font-size: 29px;
+            box-shadow: 0 6px 20px rgba(0,0,0,.25);
+            transition: .3s;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            .nav-container {
+                flex-direction: column;
+                padding: 14px 10px;
             }
 
-            header h1 {
-                font-size: 30px;
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 8px;
             }
 
-            header p {
+            .nav-links a {
+                font-size: 14px;
+                padding: 7px 8px;
+            }
+
+            .courses {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .hero {
+                padding: 70px 18px;
+            }
+
+            .hero p {
                 font-size: 17px;
             }
 
-            .admission-banner h2 {
-                font-size: 28px;
+            section {
+                padding: 60px 15px;
             }
 
-            .admission-banner p {
-                font-size: 17px;
+            .section-title h2 {
+                font-size: 29px;
             }
 
-            .course {
-                width: 90%;
+            .courses {
+                grid-template-columns: 1fr;
             }
 
             .admission-box {
-                padding: 22px;
+                padding: 25px 18px;
             }
+
+            .poster {
+                padding: 40px 10px;
+            }
+
+            .floating-whatsapp {
+                width: 52px;
+                height: 52px;
+                right: 15px;
+                bottom: 15px;
+            }
+
         }
 
     </style>
 
 </head>
 
+
 <body>
 
 
-    <!-- NAVIGATION -->
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
 
     <nav>
 
-        <a href="#home">🏠 Home</a>
+        <div class="nav-container">
 
-        <a href="#courses">📖 Courses</a>
+            <div class="logo">
+                AZAM-UL-QURAN
+            </div>
 
-        <a href="#features">✨ Features</a>
+            <div class="nav-links">
 
-        <a href="#admission">🎓 Admission</a>
+                <a href="#home">🏠 Home</a>
 
-        <a href="#contact">📞 Contact</a>
+                <a href="#courses">📖 Courses</a>
+
+                <a href="#features">✨ Features</a>
+
+                <a href="#admission">🎓 Admission</a>
+
+                <a href="#contact">📞 Contact</a>
+
+            </div>
+
+        </div>
 
     </nav>
 
 
-    <!-- HOME -->
+    <!-- =========================
+         HERO
+    ========================== -->
 
-    <header id="home">
+    <header class="hero" id="home">
 
-        <h1>AZAM-UL-QURAN Online Academy</h1>
+        <div class="hero-content">
 
-        <p>
-            Learn Quran Online From The Comfort Of Your Home
-        </p>
+            <div class="hero-badge">
+                🌙 ONLINE QURAN ACADEMY
+            </div>
 
-        <p>
-            Learn Quran • Live Quran • Spread Quran
-        </p>
+            <h1>
+                Learn Quran <span>Online</span>
+                From The Comfort Of Your Home
+            </h1>
+
+            <p>
+                One-to-One Live Quran Classes with Qualified Teachers
+                for Kids and Adults Worldwide.
+            </p>
+
+            <p>
+                Learn Quran • Live Quran • Spread Quran
+            </p>
+
+            <div class="hero-buttons">
+
+                <a class="primary-btn" href="#admission">
+                    🎓 Start Free Trial
+                </a>
+
+                <a class="secondary-btn" href="#courses">
+                    📖 View Courses
+                </a>
+
+            </div>
+
+        </div>
 
     </header>
 
 
-    <!-- ACADEMY POSTER -->
+    <!-- =========================
+         POSTER
+    ========================== -->
 
     <div class="poster">
 
         <img src="academy-poster.jpeg.jpeg"
-             alt="AZAM-UL-QURAN Online Academy Poster">
+            alt="AZAM-UL-QURAN Online Academy">
 
     </div>
 
 
-    <!-- ADMISSION BANNER -->
+    <!-- =========================
+         ADMISSION BANNER
+    ========================== -->
 
     <div class="admission-banner">
 
-        <div class="icon">
+        <div class="admission-icon">
             📢
         </div>
 
@@ -406,49 +741,122 @@
             🌙 One-to-One Live Quran Classes
         </p>
 
-        <div class="free-trial">
+        <div class="trial">
             ⭐ 3 DAYS FREE TRIAL ⭐
         </div>
 
     </div>
 
 
-    <!-- COURSES -->
+    <!-- =========================
+         COURSES
+    ========================== -->
 
     <section id="courses">
 
-        <h2>📖 Our Courses</h2>
+        <div class="section-title">
+
+            <span>Our Programs</span>
+
+            <h2>📖 Quran Courses</h2>
+
+            <p>
+                Learn Quran with a structured and easy-to-follow
+                online learning program.
+            </p>
+
+        </div>
+
 
         <div class="courses">
 
             <div class="course">
-                <div class="course-icon">📖</div>
-                Nazra Quran
+
+                <div class="course-icon">
+                    📖
+                </div>
+
+                <h3>Nazra Quran</h3>
+
+                <p>
+                    Learn Quran reading correctly with proper guidance.
+                </p>
+
             </div>
 
-            <div class="course">
-                <div class="course-icon">🕌</div>
-                Hifz-ul-Quran
-            </div>
 
             <div class="course">
-                <div class="course-icon">📚</div>
-                Recitation of Quran
+
+                <div class="course-icon">
+                    🕌
+                </div>
+
+                <h3>Hifz-ul-Quran</h3>
+
+                <p>
+                    Memorize the Holy Quran with a structured routine.
+                </p>
+
             </div>
 
-            <div class="course">
-                <div class="course-icon">📕</div>
-                Quran Translation & Tafseer
-            </div>
 
             <div class="course">
-                <div class="course-icon">🤲</div>
-                Masnoon Duas
+
+                <div class="course-icon">
+                    📚
+                </div>
+
+                <h3>Quran Recitation</h3>
+
+                <p>
+                    Improve your Quran recitation and pronunciation.
+                </p>
+
             </div>
 
+
             <div class="course">
-                <div class="course-icon">🕌</div>
-                Namaz & Kalmas
+
+                <div class="course-icon">
+                    📕
+                </div>
+
+                <h3>Translation & Tafseer</h3>
+
+                <p>
+                    Understand Quranic meanings and lessons.
+                </p>
+
+            </div>
+
+
+            <div class="course">
+
+                <div class="course-icon">
+                    🤲
+                </div>
+
+                <h3>Masnoon Duas</h3>
+
+                <p>
+                    Learn important daily duas and Islamic supplications.
+                </p>
+
+            </div>
+
+
+            <div class="course">
+
+                <div class="course-icon">
+                    🕌
+                </div>
+
+                <h3>Namaz & Kalmas</h3>
+
+                <p>
+                    Learn essential Kalmas and correct prayer method.
+                </p>
+
             </div>
 
         </div>
@@ -456,44 +864,76 @@
     </section>
 
 
-    <!-- FEATURES -->
+    <!-- =========================
+         FEATURES
+    ========================== -->
 
     <section id="features">
 
-        <h2>✨ Our Special Features</h2>
+        <div class="section-title">
 
-        <div class="feature">
-            ✅ 3 Days Free Trial
+            <span>Why Choose Us</span>
+
+            <h2>✨ Our Special Features</h2>
+
+            <p>
+                Everything you need for convenient and effective
+                Quran learning from home.
+            </p>
+
         </div>
 
-        <div class="feature">
-            ✅ One-to-One Live Classes
-        </div>
 
-        <div class="feature">
-            ✅ Flexible Timings
-        </div>
+        <div class="features-grid">
 
-        <div class="feature">
-            ✅ Kids & Adults Welcome
-        </div>
+            <div class="feature">
+                ✅ 3 Days Free Trial
+            </div>
 
-        <div class="feature">
-            ✅ Online Classes Worldwide
-        </div>
+            <div class="feature">
+                ✅ One-to-One Live Classes
+            </div>
 
-        <div class="feature">
-            ✅ Qualified Quran Teachers
+            <div class="feature">
+                ✅ Flexible Class Timings
+            </div>
+
+            <div class="feature">
+                ✅ Kids & Adults Welcome
+            </div>
+
+            <div class="feature">
+                ✅ Online Classes Worldwide
+            </div>
+
+            <div class="feature">
+                ✅ Qualified Quran Teachers
+            </div>
+
         </div>
 
     </section>
 
 
-    <!-- ADMISSION -->
+    <!-- =========================
+         ADMISSION
+    ========================== -->
 
     <section id="admission">
 
-        <h2>🎓 Admission Open</h2>
+        <div class="section-title">
+
+            <span>Join Today</span>
+
+            <h2>🎓 Admission Open</h2>
+
+            <p>
+                Fill out the form and send your admission request
+                directly through WhatsApp.
+            </p>
+
+        </div>
+
 
         <div class="admission-box">
 
@@ -502,11 +942,7 @@
             </h3>
 
             <p>
-                We welcome kids and adults from all over the world.
-            </p>
-
-            <p>
-                Flexible class timings are available.
+                Kids and adults from all over the world are welcome.
             </p>
 
             <p>
@@ -514,124 +950,130 @@
             </p>
 
 
-            <!-- ADMISSION FORM -->
-
             <form
                 class="admission-form"
                 onsubmit="sendToWhatsApp(event)"
             >
 
-                <!-- STUDENT NAME -->
 
-                <label>
-                    Student Name *
-                </label>
+                <div class="form-group">
 
-                <input
-                    type="text"
-                    id="studentName"
-                    placeholder="Enter student name"
-                    required
-                >
+                    <label>
+                        Student Name *
+                    </label>
 
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="Enter student name"
+                        required
+                    >
 
-                <!-- PARENT NAME -->
-
-                <label>
-                    Parent / Guardian Name *
-                </label>
-
-                <input
-                    type="text"
-                    id="parentName"
-                    placeholder="Enter parent or guardian name"
-                    required
-                >
+                </div>
 
 
-                <!-- PHONE -->
+                <div class="form-group">
 
-                <label>
-                    Phone Number *
-                </label>
+                    <label>
+                        Parent / Guardian Name *
+                    </label>
 
-                <input
-                    type="tel"
-                    id="phone"
-                    placeholder="Enter phone number"
-                    required
-                >
+                    <input
+                        type="text"
+                        id="parentName"
+                        placeholder="Enter parent or guardian name"
+                        required
+                    >
 
-
-                <!-- EMAIL REQUIRED -->
-
-                <label>
-                    Email Address *
-                </label>
-
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter your email address"
-                    required
-                >
+                </div>
 
 
-                <!-- COURSE -->
+                <div class="form-group">
 
-                <label>
-                    Select Course *
-                </label>
+                    <label>
+                        Phone Number *
+                    </label>
 
-                <select
-                    id="course"
-                    required
-                >
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter phone number"
+                        required
+                    >
 
-                    <option value="">
-                        Select a course
-                    </option>
-
-                    <option value="Nazra Quran">
-                        Nazra Quran
-                    </option>
-
-                    <option value="Hifz-ul-Quran">
-                        Hifz-ul-Quran
-                    </option>
-
-                    <option value="Recitation of Quran">
-                        Recitation of Quran
-                    </option>
-
-                    <option value="Quran Translation & Tafseer">
-                        Quran Translation & Tafseer
-                    </option>
-
-                    <option value="Masnoon Duas">
-                        Masnoon Duas
-                    </option>
-
-                    <option value="Namaz & Kalmas">
-                        Namaz & Kalmas
-                    </option>
-
-                </select>
+                </div>
 
 
-                <!-- MESSAGE -->
+                <div class="form-group">
 
-                <label>
-                    Message
-                </label>
+                    <label>
+                        Email Address *
+                    </label>
 
-                <textarea
-                    id="message"
-                    placeholder="Write your message here..."
-                ></textarea>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter email address"
+                        required
+                    >
+
+                </div>
 
 
-                <!-- SUBMIT -->
+                <div class="form-group">
+
+                    <label>
+                        Select Course *
+                    </label>
+
+                    <select id="course" required>
+
+                        <option value="">
+                            Select a course
+                        </option>
+
+                        <option>
+                            Nazra Quran
+                        </option>
+
+                        <option>
+                            Hifz-ul-Quran
+                        </option>
+
+                        <option>
+                            Quran Recitation
+                        </option>
+
+                        <option>
+                            Translation & Tafseer
+                        </option>
+
+                        <option>
+                            Masnoon Duas
+                        </option>
+
+                        <option>
+                            Namaz & Kalmas
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        placeholder="Write your message here..."
+                    ></textarea>
+
+                </div>
+
 
                 <button
                     type="submit"
@@ -640,6 +1082,7 @@
                     💬 Submit Admission on WhatsApp
                 </button>
 
+
             </form>
 
         </div>
@@ -647,32 +1090,48 @@
     </section>
 
 
-    <!-- CONTACT -->
+    <!-- =========================
+         CONTACT
+    ========================== -->
 
     <section id="contact">
 
-        <h2>📞 Contact Us</h2>
+        <div class="section-title">
 
-        <p>
-            For Admission & Further Information
-        </p>
+            <span>Get In Touch</span>
 
-        <p>
-            📱 <strong>0316-0682900</strong>
-        </p>
+            <h2>📞 Contact Us</h2>
 
-        <a
-            class="whatsapp"
-            href="https://wa.me/923160682900?text=Assalam-o-Alaikum%20I%20want%20information%20about%20AZAM-UL-QURAN%20Online%20Academy."
-            target="_blank"
-        >
-            💬 Contact Us on WhatsApp
-        </a>
+            <p>
+                For admission and further information,
+                contact us directly.
+            </p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <div class="phone">
+                📱 0316-0682900
+            </div>
+
+            <a
+                class="whatsapp"
+                href="https://wa.me/923160682900?text=Assalam-o-Alaikum%20I%20want%20information%20about%20AZAM-UL-QURAN%20Online%20Academy."
+                target="_blank"
+            >
+                💬 Contact Us on WhatsApp
+            </a>
+
+        </div>
 
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
     <footer>
 
@@ -695,7 +1154,21 @@
     </footer>
 
 
-    <!-- WHATSAPP SCRIPT -->
+    <!-- FLOATING WHATSAPP -->
+
+    <a
+        class="floating-whatsapp"
+        href="https://wa.me/923160682900?text=Assalam-o-Alaikum%20I%20want%20information%20about%20AZAM-UL-QURAN%20Online%20Academy."
+        target="_blank"
+        aria-label="Contact AZAM-UL-QURAN on WhatsApp"
+    >
+        💬
+    </a>
+
+
+    <!-- =========================
+         WHATSAPP SCRIPT
+    ========================== -->
 
     <script>
 
@@ -765,5 +1238,3 @@
 </body>
 
 </html>
-
-
