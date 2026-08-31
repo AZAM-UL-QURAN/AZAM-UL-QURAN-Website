@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AZAM-UL-QURAN Online Academy</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f7fff9;
+            color: #333;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            background-color: #063d24;
+            padding: 18px 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 14px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* HOME */
+
+        header {
+            background-color: #0b6b3a;
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin: 10px 0;
+        }
+
+        header p {
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        /* POSTER */
+
+        .poster {
+            background-color: white;
+            text-align: center;
+            padding: 35px 15px;
+        }
+
+        .poster img {
+            width: 420px;
+            max-width: 95%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #aaa;
+        }
+
+        /* ADMISSION BANNER */
+
+        .admission-banner {
+            background: linear-gradient(
+                135deg,
+                #0b6b3a,
+                #063d24
+            );
+
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 5px solid #d4af37;
+            border-bottom: 5px solid #d4af37;
+        }
+
+        .admission-banner .icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .admission-banner h2 {
+            color: #d4af37;
+            font-size: 36px;
+            margin: 10px 0;
+        }
+
+        .admission-banner p {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .free-trial {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #d4af37;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 55px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            color: #0b6b3a;
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+        /* COURSES */
+
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .course {
+            background-color: white;
+            width: 230px;
+            min-height: 150px;
+            padding: 25px 15px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #ccc;
+            font-size: 19px;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .course-icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .course:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px #aaa;
+        }
+
+        /* FEATURES */
+
+        #features {
+            background-color: #eaf7ee;
+        }
+
+        .feature {
+            background-color: white;
+            max-width: 650px;
+            margin: 14px auto;
+            padding: 18px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ddd;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* ADMISSION */
+
+        #admission {
+            background-color: #0b6b3a;
+            color: white;
+        }
+
+        #admission h2 {
+            color: #d4af37;
+        }
+
+        .admission-box {
+            background-color: white;
+            color: #333;
+            max-width: 650px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .admission-box h3 {
+            color: #0b6b3a;
+            font-size: 25px;
+            margin-top: 0;
+        }
+
+        .admission-box p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* ADMISSION FORM */
+
+        .admission-form {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .admission-form label {
+            display: block;
+            color: #0b6b3a;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .admission-form input,
+        .admission-form select,
+        .admission-form textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+        }
+
+        .admission-form textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #128C7E;
+        }
+
+        /* CONTACT */
+
+        #contact {
+            background-color: white;
+        }
+
+        .whatsapp {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 15px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .whatsapp:hover {
+            opacity: 0.85;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background-color: #063d24;
+            color: white;
+            text-align: center;
+            padding: 28px 15px;
+        }
+
+        footer h3 {
+            color: #d4af37;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            nav a {
+                display: inline-block;
+                margin: 7px;
+                font-size: 15px;
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            header p {
+                font-size: 17px;
+            }
+
+            .admission-banner h2 {
+                font-size: 28px;
+            }
+
+            .admission-banner p {
+                font-size: 17px;
+            }
+
+            .course {
+                width: 90%;
+            }
+
+            .admission-box {
+                padding: 22px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <a href="#home">🏠 Home</a>
+
+        <a href="#courses">📖 Courses</a>
+
+        <a href="#features">✨ Features</a>
+
+        <a href="#admission">🎓 Admission</a>
+
+        <a href="#contact">📞 Contact</a>
+
+    </nav>
+
+
+    <!-- HOME -->
+
+    <header id="home">
+
+        <h1>AZAM-UL-QURAN Online Academy</h1>
+
+        <p>
+            Learn Quran Online From The Comfort Of Your Home
+        </p>
+
+        <p>
+            Learn Quran • Live Quran • Spread Quran
+        </p>
+
+    </header>
+
+
+    <!-- ACADEMY POSTER -->
+
+    <div class="poster">
+
+        <img src="academy-poster.jpeg.jpeg"
+             alt="AZAM-UL-QURAN Online Academy Poster">
+
+    </div>
+
+
+    <!-- ADMISSION BANNER -->
+
+    <div class="admission-banner">
+
+        <div class="icon">
+            📢
+        </div>
+
+        <h2>
+            ADMISSION OPEN NOW
+        </h2>
+
+        <p>
+            Start Your Quran Learning Journey Today
+        </p>
+
+        <p>
+            🌙 One-to-One Live Quran Classes
+        </p>
+
+        <div class="free-trial">
+            ⭐ 3 DAYS FREE TRIAL ⭐
+        </div>
+
+    </div>
+
+
+    <!-- COURSES -->
+
+    <section id="courses">
+
+        <h2>📖 Our Courses</h2>
+
+        <div class="courses">
+
+            <div class="course">
+                <div class="course-icon">📖</div>
+                Nazra Quran
+            </div>
+
+            <div class="course">
+                <div class="course-icon">🕌</div>
+                Hifz-ul-Quran
+            </div>
+
+            <div class="course">
+                <div class="course-icon">📚</div>
+                Recitation of Quran
+            </div>
+
+            <div class="course">
+                <div class="course-icon">📕</div>
+                Quran Translation & Tafseer
+            </div>
+
+            <div class="course">
+                <div class="course-icon">🤲</div>
+                Masnoon Duas
+            </div>
+
+            <div class="course">
+                <div class="course-icon">🕌</div>
+                Namaz & Kalmas
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section id="features">
+
+        <h2>✨ Our Special Features</h2>
+
+        <div class="feature">
+            ✅ 3 Days Free Trial
+        </div>
+
+        <div class="feature">
+            ✅ One-to-One Live Classes
+        </div>
+
+        <div class="feature">
+            ✅ Flexible Timings
+        </div>
+
+        <div class="feature">
+            ✅ Kids & Adults Welcome
+        </div>
+
+        <div class="feature">
+            ✅ Online Classes Worldwide
+        </div>
+
+        <div class="feature">
+            ✅ Qualified Quran Teachers
+        </div>
+
+    </section>
+
+
+    <!-- ADMISSION -->
+
+    <section id="admission">
+
+        <h2>🎓 Admission Open</h2>
+
+        <div class="admission-box">
+
+            <h3>
+                Join AZAM-UL-QURAN Online Academy
+            </h3>
+
+            <p>
+                We welcome kids and adults from all over the world.
+            </p>
+
+            <p>
+                Flexible class timings are available.
+            </p>
+
+            <p>
+                ⭐ 3 Days Free Trial Available
+            </p>
+
+
+            <!-- ADMISSION FORM -->
+
+            <form
+                class="admission-form"
+                onsubmit="sendToWhatsApp(event)"
+            >
+
+                <!-- STUDENT NAME -->
+
+                <label>
+                    Student Name *
+                </label>
+
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter student name"
+                    required
+                >
+
+
+                <!-- PARENT NAME -->
+
+                <label>
+                    Parent / Guardian Name *
+                </label>
+
+                <input
+                    type="text"
+                    id="parentName"
+                    placeholder="Enter parent or guardian name"
+                    required
+                >
+
+
+                <!-- PHONE -->
+
+                <label>
+                    Phone Number *
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter phone number"
+                    required
+                >
+
+
+                <!-- EMAIL REQUIRED -->
+
+                <label>
+                    Email Address *
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email address"
+                    required
+                >
+
+
+                <!-- COURSE -->
+
+                <label>
+                    Select Course *
+                </label>
+
+                <select
+                    id="course"
+                    required
+                >
+
+                    <option value="">
+                        Select a course
+                    </option>
+
+                    <option value="Nazra Quran">
+                        Nazra Quran
+                    </option>
+
+                    <option value="Hifz-ul-Quran">
+                        Hifz-ul-Quran
+                    </option>
+
+                    <option value="Recitation of Quran">
+                        Recitation of Quran
+                    </option>
+
+                    <option value="Quran Translation & Tafseer">
+                        Quran Translation & Tafseer
+                    </option>
+
+                    <option value="Masnoon Duas">
+                        Masnoon Duas
+                    </option>
+
+                    <option value="Namaz & Kalmas">
+                        Namaz & Kalmas
+                    </option>
+
+                </select>
+
+
+                <!-- MESSAGE -->
+
+                <label>
+                    Message
+                </label>
+
+                <textarea
+                    id="message"
+                    placeholder="Write your message here..."
+                ></textarea>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    💬 Submit Admission on WhatsApp
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <h2>📞 Contact Us</h2>
+
+        <p>
+            For Admission & Further Information
+        </p>
+
+        <p>
+            📱 <strong>0316-0682900</strong>
+        </p>
+
+        <a
+            class="whatsapp"
+            href="https://wa.me/923160682900?text=Assalam-o-Alaikum%20I%20want%20information%20about%20AZAM-UL-QURAN%20Online%20Academy."
+            target="_blank"
+        >
+            💬 Contact Us on WhatsApp
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>
+            AZAM-UL-QURAN Online Academy
+        </h3>
+
+        <p>
+            Learn Quran • Live Quran • Spread Quran
+        </p>
+
+        <p>
+            📱 0316-0682900
+        </p>
+
+        <p>
+            © 2026 AZAM-UL-QURAN Online Academy
+        </p>
+
+    </footer>
+
+
+    <!-- WHATSAPP SCRIPT -->
+
+    <script>
+
+        function sendToWhatsApp(event) {
+
+            event.preventDefault();
+
+            const studentName =
+                document.getElementById("studentName").value;
+
+            const parentName =
+                document.getElementById("parentName").value;
+
+            const phone =
+                document.getElementById("phone").value;
+
+            const email =
+                document.getElementById("email").value;
+
+            const course =
+                document.getElementById("course").value;
+
+            const message =
+                document.getElementById("message").value;
+
+
+            const whatsappMessage =
+                "Assalam-o-Alaikum! 🌙\n\n" +
+
+                "AZAM-UL-QURAN Online Academy\n" +
+                "New Admission Request\n\n" +
+
+                "Student Name: " +
+                studentName + "\n\n" +
+
+                "Parent / Guardian Name: " +
+                parentName + "\n\n" +
+
+                "Phone Number: " +
+                phone + "\n\n" +
+
+                "Email Address: " +
+                email + "\n\n" +
+
+                "Selected Course: " +
+                course + "\n\n" +
+
+                "Message: " +
+                (message || "No message");
+
+
+            const whatsappURL =
+                "https://wa.me/923160682900?text=" +
+                encodeURIComponent(whatsappMessage);
+
+
+            window.open(
+                whatsappURL,
+                "_blank"
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+
+
