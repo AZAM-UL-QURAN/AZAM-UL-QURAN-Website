@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>AZAM-UL-QURAN Online Academy</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     scroll-behavior:smooth;
@@ -20,31 +18,123 @@ body{
     color:#333;
 }
 
-/* NAVIGATION */
+/* ================= TOP MOVING BAR ================= */
+
+.top-moving{
+    background:#042d1b;
+    color:#d4af37;
+    height:36px;
+    overflow:hidden;
+    position:relative;
+    white-space:nowrap;
+    display:flex;
+    align-items:center;
+}
+
+.moving-text{
+    position:absolute;
+    top:50%;
+    left:0;
+    transform:translate(-100%, -50%);
+    white-space:nowrap;
+    font-size:14px;
+    font-weight:bold;
+    animation:leftToRight 15s linear infinite;
+}
+
+@keyframes leftToRight{
+    0%{
+        transform:translate(-100%, -50%);
+    }
+
+    100%{
+        transform:translate(100vw, -50%);
+    }
+}
+
+/* ================= NAVIGATION ================= */
 
 nav{
     background:#063d24;
-    padding:16px 8px;
-    text-align:center;
     position:sticky;
     top:0;
     z-index:9999;
-    box-shadow:0 3px 12px rgba(0,0,0,.25);
+    height:62px;
+    display:flex;
+    align-items:center;
+    padding:0 18px;
 }
 
-nav a{
+.nav-brand{
+    color:#d4af37;
+    font-size:17px;
+    font-weight:bold;
+    margin-left:60px;
+}
+
+/* ================= LEFT MENU BUTTON ================= */
+
+.menu-button{
+    display:block !important;
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    width:45px;
+    height:45px;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    padding:5px;
+    z-index:10001;
+}
+
+.menu-button span{
+    display:block;
+    width:30px;
+    height:4px;
+    background:white;
+    margin:5px auto;
+    border-radius:3px;
+}
+
+/* ================= LEFT SIDE MENU ================= */
+
+.nav-links{
+    display:none;
+    position:absolute;
+    top:62px;
+    left:0;
+    right:auto;
+    width:270px;
+    background:#063d24;
+    padding:15px;
+    border-radius:0 0 15px 0;
+    box-shadow:5px 5px 20px rgba(0,0,0,.35);
+    flex-direction:column;
+    gap:5px;
+}
+
+.nav-links.active{
+    display:flex;
+}
+
+.nav-links a{
     color:white;
     text-decoration:none;
-    margin:0 12px;
+    padding:13px 15px;
     font-size:16px;
     font-weight:bold;
+    border-radius:8px;
+    text-align:left;
 }
 
-nav a:hover{
+.nav-links a:hover{
     color:#d4af37;
+    background:#042d1b;
 }
 
-/* HOME */
+/* ================= HOME ================= */
 
 header{
     background:linear-gradient(135deg,#0b6b3a,#063d24);
@@ -68,7 +158,7 @@ header p{
     font-weight:bold;
 }
 
-/* POSTER */
+/* ================= POSTER ================= */
 
 .poster{
     background:white;
@@ -81,12 +171,12 @@ header p{
     width:300px;
     max-width:80%;
     height:auto;
-    margin:0 auto;
+    margin:auto;
     border-radius:14px;
     box-shadow:0 5px 18px rgba(0,0,0,.18);
 }
 
-/* ADMISSION BANNER */
+/* ================= ADMISSION BANNER ================= */
 
 .admission-banner{
     background:linear-gradient(135deg,#0b6b3a,#063d24);
@@ -123,11 +213,7 @@ header p{
     font-weight:bold;
 }
 
-.trial-button:hover{
-    background:#b99325;
-}
-
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 
 section{
     padding:50px 20px;
@@ -140,7 +226,7 @@ section h2{
     margin-bottom:30px;
 }
 
-/* COURSES */
+/* ================= COURSES ================= */
 
 #courses{
     background:white;
@@ -182,7 +268,7 @@ section h2{
     margin-bottom:10px;
 }
 
-/* FEATURES */
+/* ================= FEATURES ================= */
 
 #features{
     background:#eaf7ee;
@@ -209,7 +295,6 @@ section h2{
     font-weight:bold;
     cursor:pointer;
     box-shadow:0 3px 12px rgba(0,0,0,.12);
-    transition:.3s;
 }
 
 .feature-button span{
@@ -218,13 +303,7 @@ section h2{
     margin-bottom:8px;
 }
 
-.feature-button:hover{
-    transform:translateY(-5px);
-    background:#063d24;
-    color:white;
-}
-
-/* FEES */
+/* ================= FEES ================= */
 
 #fees{
     background:white;
@@ -287,7 +366,6 @@ section h2{
 .fee-result h4{
     color:#d4af37;
     font-size:24px;
-    margin:5px;
 }
 
 .fee-amount{
@@ -307,7 +385,7 @@ section h2{
     font-weight:bold;
 }
 
-/* ADMISSION */
+/* ================= ADMISSION ================= */
 
 #admission{
     background:#0b6b3a;
@@ -331,11 +409,6 @@ section h2{
 .admission-box h3{
     color:#0b6b3a;
     font-size:26px;
-    margin-top:0;
-}
-
-.admission-box p{
-    color:#555;
 }
 
 .teacher-box{
@@ -344,26 +417,25 @@ section h2{
     border-radius:12px;
     padding:17px;
     margin:25px auto;
-    max-width:600px;
 }
 
 .teacher-box h4{
     color:#063d24;
     font-size:23px;
-    margin:5px;
 }
 
-/* FORMS */
+/* ================= FORMS ================= */
 
 .admission-form,
-.review-form{
+.review-form,
+.comment-form{
     margin-top:28px;
     text-align:left;
 }
 
 .admission-form label,
 .review-form label,
-.faq-form-box label{
+.comment-form label{
     display:block;
     color:#0b6b3a;
     font-weight:bold;
@@ -374,9 +446,10 @@ section h2{
 .admission-form select,
 .admission-form textarea,
 .review-form input,
+.review-form select,
 .review-form textarea,
-.faq-form-box input,
-.faq-form-box textarea{
+.comment-form input,
+.comment-form textarea{
     width:100%;
     padding:14px;
     margin-bottom:17px;
@@ -388,9 +461,8 @@ section h2{
 
 .admission-form textarea,
 .review-form textarea,
-.faq-form-box textarea{
-    min-height:120px;
-    resize:vertical;
+.comment-form textarea{
+    min-height:105px;
 }
 
 .submit-btn{
@@ -405,11 +477,7 @@ section h2{
     cursor:pointer;
 }
 
-.submit-btn:hover{
-    background:#128C7E;
-}
-
-/* REVIEWS */
+/* ================= REVIEWS ================= */
 
 #reviews{
     background:#eaf7ee;
@@ -422,15 +490,11 @@ section h2{
     padding:30px;
     border:2px solid #d4af37;
     border-radius:18px;
-    box-shadow:0 5px 18px rgba(0,0,0,.12);
 }
 
 .review-box h3{
     color:#063d24;
-    margin-top:0;
 }
-
-/* STAR RATING */
 
 .stars{
     display:flex;
@@ -448,7 +512,6 @@ section h2{
     font-size:38px;
     color:#ccc;
     cursor:pointer;
-    transition:.2s;
 }
 
 .stars label:hover,
@@ -457,115 +520,51 @@ section h2{
     color:#d4af37;
 }
 
-/* THANK YOU */
-
-.thank-you{
-    display:none;
-    text-align:center;
-    margin-top:18px;
-    padding:16px;
-    background:#eaf7ee;
-    color:#0b6b3a;
-    border:1px solid #d4af37;
-    border-radius:10px;
-    font-weight:bold;
-}
-
-.review-note{
-    font-size:14px;
-    color:#777;
-    margin-top:15px;
-}
-
-/* FAQ */
-
-#faq{
-    background:white;
-}
-
-.faq-container{
-    max-width:800px;
-    margin:auto;
-    text-align:left;
-}
-
-.faq-item{
-    background:#f7fff9;
-    border:1px solid #d4af37;
-    border-radius:10px;
-    margin-bottom:12px;
-    overflow:hidden;
-}
-
-.faq-question{
+.review-submit{
     width:100%;
-    background:#063d24;
-    color:white;
-    border:none;
-    padding:17px;
-    text-align:left;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.faq-question:hover{
     background:#0b6b3a;
-}
-
-.faq-answer{
-    display:none;
-    padding:17px;
-    color:#444;
-    line-height:1.6;
-}
-
-.faq-question.active + .faq-answer{
-    display:block;
-}
-
-/* FAQ FORM */
-
-.faq-form-box{
-    max-width:800px;
-    margin:35px auto 0;
-    background:#f7fff9;
-    border:2px solid #d4af37;
-    border-radius:16px;
-    padding:25px;
-    text-align:left;
-}
-
-.faq-form-box h3{
-    color:#063d24;
-    text-align:center;
-}
-
-.faq-submit{
-    width:100%;
-    background:#d4af37;
     color:white;
     border:none;
     padding:15px;
     border-radius:9px;
     font-size:17px;
     font-weight:bold;
-    cursor:pointer;
 }
 
-.faq-submit:hover{
-    background:#b99325;
-}
+/* ================= THANK YOU ================= */
 
-.faq-success{
+.thank-you{
     display:none;
+    margin-top:20px;
+    padding:18px;
+    background:#eaf7ee;
+    border:2px solid #d4af37;
+    border-radius:12px;
+    color:#063d24;
     text-align:center;
-    margin-top:15px;
-    color:#0b6b3a;
     font-weight:bold;
 }
 
-/* CONTACT */
+/* ================= COMMENT ================= */
+
+#comment{
+    background:white;
+}
+
+.comment-box{
+    max-width:700px;
+    margin:auto;
+    background:#f7fff9;
+    border:2px solid #d4af37;
+    border-radius:18px;
+    padding:30px;
+}
+
+.comment-box h3{
+    color:#063d24;
+}
+
+/* ================= CONTACT ================= */
 
 #contact{
     background:white;
@@ -580,14 +579,9 @@ section h2{
     text-decoration:none;
     font-size:18px;
     font-weight:bold;
-    margin-top:15px;
 }
 
-.whatsapp:hover{
-    background:#128C7E;
-}
-
-/* FLOATING WHATSAPP */
+/* ================= FLOATING WHATSAPP ================= */
 
 .right-whatsapp{
     position:fixed;
@@ -601,16 +595,9 @@ section h2{
     text-decoration:none;
     font-size:16px;
     font-weight:bold;
-    box-shadow:0 5px 18px rgba(0,0,0,.3);
-    transition:.3s;
 }
 
-.right-whatsapp:hover{
-    background:#128C7E;
-    transform:scale(1.05);
-}
-
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
     background:#063d24;
@@ -621,17 +608,36 @@ footer{
 
 footer h3{
     color:#d4af37;
-    font-size:23px;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
-@media(max-width:600px){
+@media(max-width:700px){
 
-    nav a{
-        display:inline-block;
-        margin:5px;
-        font-size:13px;
+    nav{
+        height:58px;
+        padding:0 15px;
+    }
+
+    .nav-brand{
+        font-size:14px;
+        margin-left:55px;
+    }
+
+    .menu-button{
+        left:8px;
+        top:50%;
+    }
+
+    .nav-links{
+        top:58px;
+        left:0;
+        width:230px;
+    }
+
+    .moving-text{
+        font-size:12px;
+        animation-duration:12s;
     }
 
     header h1{
@@ -644,11 +650,6 @@ footer h3{
 
     .poster img{
         width:260px;
-        max-width:78%;
-    }
-
-    .admission-banner h2{
-        font-size:27px;
     }
 
     .course-button,
@@ -659,7 +660,7 @@ footer h3{
     .fee-container,
     .admission-box,
     .review-box,
-    .faq-form-box{
+    .comment-box{
         padding:20px;
     }
 
@@ -670,793 +671,866 @@ footer h3{
         font-size:14px;
     }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- ================= TOP MOVING TEXT ================= -->
+
+<div class="top-moving">
+
+    <div class="moving-text">
+        ✨ AZAM-UL-QURAN Online Academy • Learn Quran • Live Quran • Spread Quran ✨
+    </div>
+
+</div>
+
+<!-- ================= NAVIGATION ================= -->
 
 <nav>
 
-<a href="#home">🏠 Home</a>
-<a href="#courses">📖 Courses</a>
-<a href="#features">✨ Features</a>
-<a href="#fees">💰 Fees</a>
-<a href="#admission">🎓 Admission</a>
-<a href="#reviews">⭐ Reviews</a>
-<a href="#faq">❓ FAQ</a>
-<a href="#contact">📞 Contact</a>
+    <!-- LEFT SIDE MENU -->
+
+    <button
+        class="menu-button"
+        onclick="toggleMenu()"
+        aria-label="Open Menu">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+    <div class="nav-brand">
+        AZAM-UL-QURAN
+    </div>
+
+    <!-- MENU LINKS -->
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="#home" onclick="closeMenu()">🏠 Home</a>
+
+        <a href="#courses" onclick="closeMenu()">📖 Courses</a>
+
+        <a href="#features" onclick="closeMenu()">✨ Features</a>
+
+        <a href="#fees" onclick="closeMenu()">💰 Fees</a>
+
+        <a href="#admission" onclick="closeMenu()">🎓 Admission</a>
+
+        <a href="#reviews" onclick="closeMenu()">⭐ Reviews</a>
+
+        <a href="#comment" onclick="closeMenu()">💬 Comment</a>
+
+        <a href="#contact" onclick="closeMenu()">📞 Contact</a>
+
+    </div>
 
 </nav>
 
-
-<!-- HOME -->
+<!-- ================= HOME ================= -->
 
 <header id="home">
 
-<h1>AZAM-UL-QURAN Online Academy</h1>
+    <h1>
+        AZAM-UL-QURAN Online Academy
+    </h1>
 
-<p>
-Learn Quran Online From The Comfort Of Your Home
-</p>
+    <p>
+        Learn Quran Online From The Comfort Of Your Home
+    </p>
 
-<p class="gold-text">
-Learn Quran • Live Quran • Spread Quran
-</p>
+    <p class="gold-text">
+        Learn Quran • Live Quran • Spread Quran
+    </p>
 
 </header>
 
-
-<!-- POSTER -->
+<!-- ================= POSTER ================= -->
 
 <div class="poster">
 
-<img
-src="academy-poster.jpeg.jpeg"
-alt="AZAM-UL-QURAN Online Academy Poster"
->
+    <img
+        src="academy-poster.jpeg.jpeg"
+        alt="AZAM-UL-QURAN Online Academy Poster">
 
 </div>
 
-
-<!-- ADMISSION BANNER -->
+<!-- ================= ADMISSION BANNER ================= -->
 
 <div class="admission-banner">
 
-<div class="icon">📢</div>
+    <div class="icon">📢</div>
 
-<h2>ADMISSION OPEN NOW</h2>
+    <h2>ADMISSION OPEN NOW</h2>
 
-<p>Start Your Quran Learning Journey Today</p>
+    <p>
+        Start Your Quran Learning Journey Today
+    </p>
 
-<p>🌙 One-to-One Live Quran Classes</p>
+    <p>
+        🌙 One-to-One Live Quran Classes
+    </p>
 
-<a
-href="#admission"
-class="trial-button"
->
-⭐ 3 DAYS FREE TRIAL ⭐
-</a>
+    <a
+        href="#admission"
+        class="trial-button">
+
+        ⭐ 3 DAYS FREE TRIAL ⭐
+
+    </a>
 
 </div>
 
-
-<!-- COURSES -->
+<!-- ================= COURSES ================= -->
 
 <section id="courses">
 
-<h2>📖 Our Quran Courses</h2>
+    <h2>📖 Our Quran Courses</h2>
 
-<div class="courses">
+    <div class="courses">
 
-<button
-class="course-button"
-onclick="selectCourse('Nazra Quran')"
->
-<span class="course-icon">📖</span>
-Nazra Quran
-</button>
+        <button
+            class="course-button"
+            onclick="selectCourse('Nazra Quran')">
 
-<button
-class="course-button"
-onclick="selectCourse('Hifz-ul-Quran')"
->
-<span class="course-icon">🕌</span>
-Hifz-ul-Quran
-</button>
+            <span class="course-icon">📖</span>
 
-<button
-class="course-button"
-onclick="selectCourse('Recitation of Quran')"
->
-<span class="course-icon">📚</span>
-Recitation of Quran
-</button>
+            Nazra Quran
 
-<button
-class="course-button"
-onclick="selectCourse('Quran Translation & Tafseer')"
->
-<span class="course-icon">📕</span>
-Quran Translation & Tafseer
-</button>
+        </button>
 
-<button
-class="course-button"
-onclick="selectCourse('Masnoon Duas')"
->
-<span class="course-icon">🤲</span>
-Masnoon Duas
-</button>
+        <button
+            class="course-button"
+            onclick="selectCourse('Hifz-ul-Quran')">
 
-<button
-class="course-button"
-onclick="selectCourse('Namaz & Kalmas')"
->
-<span class="course-icon">🕌</span>
-Namaz & Kalmas
-</button>
+            <span class="course-icon">🕌</span>
 
-</div>
+            Hifz-ul-Quran
+
+        </button>
+
+        <button
+            class="course-button"
+            onclick="selectCourse('Recitation of Quran')">
+
+            <span class="course-icon">📚</span>
+
+            Recitation of Quran
+
+        </button>
+
+        <button
+            class="course-button"
+            onclick="selectCourse('Quran Translation & Tafseer')">
+
+            <span class="course-icon">📕</span>
+
+            Quran Translation & Tafseer
+
+        </button>
+
+        <button
+            class="course-button"
+            onclick="selectCourse('Masnoon Duas')">
+
+            <span class="course-icon">🤲</span>
+
+            Masnoon Duas
+
+        </button>
+
+        <button
+            class="course-button"
+            onclick="selectCourse('Namaz & Kalmas')">
+
+            <span class="course-icon">🕌</span>
+
+            Namaz & Kalmas
+
+        </button>
+
+    </div>
 
 </section>
 
-
-<!-- FEATURES -->
+<!-- ================= FEATURES ================= -->
 
 <section id="features">
 
-<h2>✨ Why Choose Us?</h2>
+    <h2>✨ Why Choose Us?</h2>
 
-<div class="feature-buttons">
+    <div class="feature-buttons">
 
-<button
-class="feature-button"
-onclick="showFeature('trial')"
->
-<span>🎁</span>
-3-Day Free Trial
-</button>
+        <button
+            class="feature-button"
+            onclick="showFeature('trial')">
 
-<button
-class="feature-button"
-onclick="showFeature('live')"
->
-<span>⏰</span>
-30 Minutes Live Classes
-</button>
+            <span>🎁</span>
 
-<button
-class="feature-button"
-onclick="showFeature('free')"
->
-<span>🤲</span>
-Free of Cost Quota
-</button>
+            3-Day Free Trial
 
-<button
-class="feature-button"
-onclick="showFeature('teachers')"
->
-<span>👨‍🏫</span>
-Qualified Quran Teacher
-</button>
+        </button>
 
-</div>
+        <button
+            class="feature-button"
+            onclick="showFeature('live')">
+
+            <span>⏰</span>
+
+            30 Minutes Live Classes
+
+        </button>
+
+        <button
+            class="feature-button"
+            onclick="showFeature('free')">
+
+            <span>🤲</span>
+
+            Free of Cost Quota for Needy People
+
+        </button>
+
+        <button
+            class="feature-button"
+            onclick="showFeature('teachers')">
+
+            <span>👨‍🏫</span>
+
+            Qualified Quran Teacher
+
+        </button>
+
+    </div>
 
 </section>
 
-
-<!-- FEES -->
+<!-- ================= FEES ================= -->
 
 <section id="fees">
 
-<h2>💰 Monthly Fee Plans</h2>
+    <h2>💰 Monthly Fee Plans</h2>
 
-<div class="fee-container">
+    <div class="fee-container">
 
-<h3>Select Your Country & Classes</h3>
+        <h3>Select Your Country & Classes</h3>
 
-<p>
-Select your country first, then select the number
-of classes per week. Your monthly fee will appear automatically.
-</p>
+        <p>
+            Select your country first, then select the number
+            of classes per week.
+        </p>
 
-<p>⭐ 3-Day Free Trial Available</p>
+        <p>
+            ⭐ 3-Day Free Trial Available
+        </p>
 
-<div class="selection-row">
+        <div class="selection-row">
 
-<div class="selection-box">
+            <div class="selection-box">
 
-<label>🌍 Select Country / Region</label>
+                <label>
+                    🌍 Select Country / Region
+                </label>
 
-<select id="country" onchange="updateFee()">
+                <select
+                    id="country"
+                    onchange="updateFee()">
 
-<option value="">Select Country / Region</option>
+                    <option value="">
+                        Select Country / Region
+                    </option>
 
-<option value="pakistan">Pakistan</option>
+                    <option value="pakistan">
+                        Pakistan
+                    </option>
 
-<option value="saudi">Saudi Arabia & Qatar</option>
+                    <option value="saudi">
+                        Saudi Arabia & Qatar
+                    </option>
 
-<option value="usa">USA & Canada</option>
+                    <option value="usa">
+                        USA & Canada
+                    </option>
 
-<option value="uk">UK</option>
+                    <option value="uk">
+                        UK
+                    </option>
 
-<option value="europe">Europe</option>
+                    <option value="europe">
+                        Europe
+                    </option>
 
-</select>
+                </select>
 
-</div>
+            </div>
 
+            <div class="selection-box">
 
-<div class="selection-box">
+                <label>
+                    📅 Classes Per Week
+                </label>
 
-<label>📅 Classes Per Week</label>
+                <select
+                    id="days"
+                    onchange="updateFee()">
 
-<select id="days" onchange="updateFee()">
+                    <option value="">
+                        Select Days Per Week
+                    </option>
 
-<option value="">Select Days Per Week</option>
+                    <option value="2">
+                        Plan A — 2 Days per Week
+                    </option>
 
-<option value="2">Plan A — 2 Days per Week</option>
+                    <option value="3">
+                        Plan B — 3 Days per Week
+                    </option>
 
-<option value="3">Plan B — 3 Days per Week</option>
+                    <option value="5">
+                        Plan C — 5 Days per Week
+                    </option>
 
-<option value="5">Plan C — 5 Days per Week</option>
+                </select>
 
-</select>
+            </div>
 
-</div>
+        </div>
 
-</div>
+        <div
+            class="fee-result"
+            id="feeResult">
 
+            <h4>Your Monthly Fee</h4>
 
-<div class="fee-result" id="feeResult">
+            <div
+                class="fee-amount"
+                id="feeAmount">
+            </div>
 
-<h4>Your Monthly Fee</h4>
+            <p id="planText"></p>
 
-<div class="fee-amount" id="feeAmount"></div>
+            <p>⏰ 30 Minutes Per Class</p>
 
-<p id="planText"></p>
+            <p>📅 Monthly Plan</p>
 
-<p>⏰ 30 Minutes Per Class</p>
+            <p>🎁 3-Day Free Trial Available</p>
 
-<p>📅 Monthly Plan</p>
+            <a
+                href="#admission"
+                class="select-plan-button"
+                onclick="useSelectedPlan()">
 
-<p>🎁 3-Day Free Trial Available</p>
+                🎓 Select This Plan
 
-<a
-href="#admission"
-class="select-plan-button"
-onclick="useSelectedPlan()"
->
-🎓 Select This Plan
-</a>
+            </a>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
-
-<!-- ADMISSION -->
+<!-- ================= ADMISSION ================= -->
 
 <section id="admission">
 
-<h2>🎓 Admission Open</h2>
+    <h2>🎓 Admission Open</h2>
 
-<div class="admission-box">
+    <div class="admission-box">
 
-<h3>Join AZAM-UL-QURAN Online Academy</h3>
+        <h3>
+            Join AZAM-UL-QURAN Online Academy
+        </h3>
 
-<p>
-We welcome kids and adults from all over the world.
-</p>
+        <p>
+            We welcome kids and adults from all over the world.
+        </p>
 
-<p>Flexible class timings are available.</p>
+        <p>
+            Flexible class timings are available.
+        </p>
 
-<p>⭐ 3 Days Free Trial Available</p>
+        <p>
+            ⭐ 3 Days Free Trial Available
+        </p>
 
-<div class="teacher-box">
+        <div class="teacher-box">
 
-<h4>👨‍🏫 Teacher: Zubair</h4>
+            <h4>
+                👨‍🏫 Teacher: Zubair
+            </h4>
 
-<p>
-Trainee from Umm Al Quran University,
-Kingdom of Saudi Arabia
-</p>
+            <p>
+                Trainee from Umm Al Quran University,
+                Kingdom of Saudi Arabia
+            </p>
 
-</div>
+        </div>
 
+        <form
+            class="admission-form"
+            onsubmit="sendToWhatsApp(event)">
 
-<form
-class="admission-form"
-onsubmit="sendToWhatsApp(event)"
->
+            <label>
+                Student Name *
+            </label>
 
-<label>Student Name *</label>
+            <input
+                type="text"
+                id="studentName"
+                placeholder="Enter student name"
+                required>
 
-<input
-type="text"
-id="studentName"
-placeholder="Enter student name"
-required
->
+            <label>
+                Parent / Guardian Name *
+            </label>
 
-<label>Parent / Guardian Name *</label>
+            <input
+                type="text"
+                id="parentName"
+                placeholder="Enter parent or guardian name"
+                required>
 
-<input
-type="text"
-id="parentName"
-placeholder="Enter parent or guardian name"
-required
->
+            <label>
+                Phone Number *
+            </label>
 
-<label>Phone Number *</label>
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Enter phone number"
+                required>
 
-<input
-type="tel"
-id="phone"
-placeholder="Enter phone number"
-required
->
+            <label>
+                Email Address *
+            </label>
 
-<label>Email Address *</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email address"
+                required>
 
-<input
-type="email"
-id="email"
-placeholder="Enter your email address"
-required
->
+            <label>
+                Select Course *
+            </label>
 
-<label>Select Course *</label>
+            <select
+                id="course"
+                required>
 
-<select id="course" required>
+                <option value="">
+                    Select a course
+                </option>
 
-<option value="">Select a course</option>
+                <option>
+                    Nazra Quran
+                </option>
 
-<option value="Nazra Quran">Nazra Quran</option>
+                <option>
+                    Hifz-ul-Quran
+                </option>
 
-<option value="Hifz-ul-Quran">Hifz-ul-Quran</option>
+                <option>
+                    Recitation of Quran
+                </option>
 
-<option value="Recitation of Quran">
-Recitation of Quran
-</option>
+                <option>
+                    Quran Translation & Tafseer
+                </option>
 
-<option value="Quran Translation & Tafseer">
-Quran Translation & Tafseer
-</option>
+                <option>
+                    Masnoon Duas
+                </option>
 
-<option value="Masnoon Duas">
-Masnoon Duas
-</option>
+                <option>
+                    Namaz & Kalmas
+                </option>
 
-<option value="Namaz & Kalmas">
-Namaz & Kalmas
-</option>
+            </select>
 
-</select>
+            <label>
+                Country / Region
+            </label>
 
+            <select id="formCountry">
 
-<label>Country / Region</label>
+                <option value="">
+                    Select Country / Region
+                </option>
 
-<select id="formCountry">
+                <option>
+                    Pakistan
+                </option>
 
-<option value="">Select Country / Region</option>
+                <option>
+                    Saudi Arabia & Qatar
+                </option>
 
-<option value="Pakistan">Pakistan</option>
+                <option>
+                    USA & Canada
+                </option>
 
-<option value="Saudi Arabia & Qatar">
-Saudi Arabia & Qatar
-</option>
+                <option>
+                    UK
+                </option>
 
-<option value="USA & Canada">
-USA & Canada
-</option>
+                <option>
+                    Europe
+                </option>
 
-<option value="UK">UK</option>
+            </select>
 
-<option value="Europe">Europe</option>
+            <label>
+                Classes Per Week
+            </label>
 
-</select>
+            <select id="formDays">
 
+                <option value="">
+                    Select Days
+                </option>
 
-<label>Classes Per Week</label>
+                <option>
+                    2 Days per Week
+                </option>
 
-<select id="formDays">
+                <option>
+                    3 Days per Week
+                </option>
 
-<option value="">Select Days</option>
+                <option>
+                    5 Days per Week
+                </option>
 
-<option value="2 Days per Week">
-2 Days per Week
-</option>
+            </select>
 
-<option value="3 Days per Week">
-3 Days per Week
-</option>
+            <label>
+                Message
+            </label>
 
-<option value="5 Days per Week">
-5 Days per Week
-</option>
+            <textarea
+                id="message"
+                placeholder="Write your message here...">
+            </textarea>
 
-</select>
+            <button
+                type="submit"
+                class="submit-btn">
 
+                💬 Submit Admission on WhatsApp
 
-<label>Message</label>
+            </button>
 
-<textarea
-id="message"
-placeholder="Write your message here..."
-></textarea>
+        </form>
 
-
-<button
-type="submit"
-class="submit-btn"
->
-💬 Submit Admission on WhatsApp
-</button>
-
-</form>
-
-</div>
+    </div>
 
 </section>
 
-
-<!-- REVIEWS -->
+<!-- ================= REVIEWS ================= -->
 
 <section id="reviews">
 
-<h2>⭐ Student & Parent Reviews</h2>
+    <h2>
+        ⭐ Student & Parent Reviews
+    </h2>
 
-<div class="review-box">
+    <div class="review-box">
 
-<h3>Share Your Experience</h3>
+        <h3>
+            Share Your Experience
+        </h3>
 
-<p>
-Are you a student or parent? Please share your experience with our academy.
-</p>
+        <p>
+            Are you a student or parent?
+            Please share your experience with our academy.
+        </p>
 
-<form
-class="review-form"
-onsubmit="submitReview(event)"
->
+        <form
+            class="review-form"
+            onsubmit="submitReview(event)">
 
-<label>Your Name *</label>
+            <label>
+                Your Name *
+            </label>
 
-<input
-type="text"
-id="reviewName"
-placeholder="Enter your name"
-required
->
+            <input
+                type="text"
+                id="reviewName"
+                placeholder="Enter your name"
+                required>
 
-<label>You are a:</label>
+            <label>
+                You are a:
+            </label>
 
-<select id="reviewType">
+            <select id="reviewType">
 
-<option value="Student">Student</option>
+                <option>
+                    Student
+                </option>
 
-<option value="Parent">Parent</option>
+                <option>
+                    Parent
+                </option>
 
-</select>
+            </select>
 
+            <label>
+                Your Rating *
+            </label>
 
-<label>Your Rating *</label>
+            <div class="stars">
 
-<div class="stars">
+                <input
+                    type="radio"
+                    id="star5"
+                    name="rating"
+                    value="5"
+                    required>
 
-<input
-type="radio"
-id="star5"
-name="rating"
-value="5"
-required
->
+                <label for="star5">★</label>
 
-<label for="star5">★</label>
+                <input
+                    type="radio"
+                    id="star4"
+                    name="rating"
+                    value="4">
 
-<input
-type="radio"
-id="star4"
-name="rating"
-value="4"
->
+                <label for="star4">★</label>
 
-<label for="star4">★</label>
+                <input
+                    type="radio"
+                    id="star3"
+                    name="rating"
+                    value="3">
 
-<input
-type="radio"
-id="star3"
-name="rating"
-value="3"
->
+                <label for="star3">★</label>
 
-<label for="star3">★</label>
+                <input
+                    type="radio"
+                    id="star2"
+                    name="rating"
+                    value="2">
 
-<input
-type="radio"
-id="star2"
-name="rating"
-value="2"
->
+                <label for="star2">★</label>
 
-<label for="star2">★</label>
+                <input
+                    type="radio"
+                    id="star1"
+                    name="rating"
+                    value="1">
 
-<input
-type="radio"
-id="star1"
-name="rating"
-value="1"
->
+                <label for="star1">★</label>
 
-<label for="star1">★</label>
+            </div>
 
-</div>
+            <label>
+                Your Review *
+            </label>
 
+            <textarea
+                id="reviewText"
+                placeholder="Write your review or comment here..."
+                required>
+            </textarea>
 
-<label>Your Review / Comment *</label>
+            <button
+                type="submit"
+                class="review-submit">
 
-<textarea
-id="reviewText"
-placeholder="Write your review or comment here..."
-required
-></textarea>
+                ⭐ Submit Review on WhatsApp
 
+            </button>
 
-<button
-type="submit"
-class="review-submit"
->
-⭐ Submit Review on WhatsApp
-</button>
+        </form>
 
-<p class="review-note">
-Your review will open WhatsApp and be sent directly to the academy.
-</p>
+        <div
+            id="reviewThankYou"
+            class="thank-you">
 
-<div
-id="reviewThankYou"
-class="thank-you"
->
-✅ Thank you for your review! Your review has been submitted.
-</div>
+            ✅ Thank you for your review!
+            Your review details have been sent to WhatsApp.
 
-</form>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
+<!-- ================= COMMENT ================= -->
 
-<!-- FAQ -->
+<section id="comment">
 
-<section id="faq">
+    <h2>
+        💬 Have Another Comment?
+    </h2>
 
-<h2>❓ Frequently Asked Questions</h2>
+    <div class="comment-box">
 
-<div class="faq-container">
+        <h3>
+            Send Us Your Comment
+        </h3>
 
-<div class="faq-item">
+        <p>
+            Have a suggestion, comment or feedback?
+            Send it directly to us on WhatsApp.
+        </p>
 
-<button
-class="faq-question"
-onclick="toggleFAQ(this)"
->
-📖 What courses do you offer?
-</button>
+        <form
+            class="comment-form"
+            onsubmit="submitComment(event)">
 
-<div class="faq-answer">
-We offer Nazra Quran, Hifz-ul-Quran, Quran Recitation,
-Quran Translation & Tafseer, Masnoon Duas, Namaz and Kalmas.
-</div>
+            <label>
+                Your Name *
+            </label>
 
-</div>
+            <input
+                type="text"
+                id="commentName"
+                placeholder="Enter your name"
+                required>
 
+            <label>
+                Your Comment *
+            </label>
 
-<div class="faq-item">
+            <textarea
+                id="commentText"
+                placeholder="Write your comment here..."
+                required>
+            </textarea>
 
-<button
-class="faq-question"
-onclick="toggleFAQ(this)"
->
-🎁 Do you offer a free trial?
-</button>
+            <button
+                type="submit"
+                class="submit-btn">
 
-<div class="faq-answer">
-Yes. A 3-Day Free Trial is available for students who want
-to experience our online Quran classes.
-</div>
+                💬 Send Comment on WhatsApp
 
-</div>
+            </button>
 
+        </form>
 
-<div class="faq-item">
+        <div
+            id="commentThankYou"
+            class="thank-you">
 
-<button
-class="faq-question"
-onclick="toggleFAQ(this)"
->
-⏰ How long is each class?
-</button>
+            ✅ Thank you!
+            Your comment has been sent successfully.
 
-<div class="faq-answer">
-Each live class is approximately 30 minutes.
-</div>
+        </div>
 
-</div>
-
-
-<div class="faq-item">
-
-<button
-class="faq-question"
-onclick="toggleFAQ(this)"
->
-🌍 Do you teach students from other countries?
-</button>
-
-<div class="faq-answer">
-Yes. We welcome students from Pakistan, Saudi Arabia,
-Qatar, USA, Canada, UK, Europe and other regions.
-</div>
-
-</div>
-
-
-<div class="faq-item">
-
-<button
-class="faq-question"
-onclick="toggleFAQ(this)"
->
-👨‍🏫 Who teaches the Quran?
-</button>
-
-<div class="faq-answer">
-Teacher Zubair is a trainee from Umm Al Quran University,
-Kingdom of Saudi Arabia.
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ASK QUESTION -->
-
-<div class="faq-form-box">
-
-<h3>✍️ Have Another Question?</h3>
-
-<p>
-You can type your question or comment below.
-It will open WhatsApp and send it to the academy.
-</p>
-
-<form onsubmit="submitQuestion(event)">
-
-<label>Your Name</label>
-
-<input
-type="text"
-id="questionName"
-placeholder="Enter your name"
-required
->
-
-<label>Your Question / Comment</label>
-
-<textarea
-id="questionText"
-placeholder="Type your question or comment here..."
-required
-></textarea>
-
-<button
-type="submit"
-class="faq-submit"
->
-📩 Send Question on WhatsApp
-</button>
-
-<p
-id="faqSuccess"
-class="faq-success"
->
-✅ Thank you! Your question has been sent to WhatsApp.
-</p>
-
-</form>
-
-</div>
+    </div>
 
 </section>
 
-
-<!-- CONTACT -->
+<!-- ================= CONTACT ================= -->
 
 <section id="contact">
 
-<h2>📞 Contact Us</h2>
+    <h2>
+        📞 Contact Us
+    </h2>
 
-<p>For Admission & Further Information</p>
+    <p>
+        For Admission & Further Information
+    </p>
 
-<p>📱 <strong>+92 316 0682900</strong></p>
+    <p>
+        📱 <strong>+92 316 0682900</strong>
+    </p>
 
-<p>👨‍🏫 Teacher: <strong>Zubair</strong></p>
+    <p>
+        👨‍🏫 Teacher:
+        <strong>Zubair</strong>
+    </p>
 
-<p>
-Trainee from Umm Al Quran University,
-Kingdom of Saudi Arabia
-</p>
+    <p>
+        Trainee from Umm Al Quran University,
+        Kingdom of Saudi Arabia
+    </p>
 
-<a
-class="whatsapp"
-href="https://wa.me/923160682900?text=Assalam-o-Alaikum%20I%20want%20information%20about%20AZAM-UL-QURAN%20Online%20Academy."
-target="_blank"
->
-💬 Contact Us on WhatsApp
-</a>
+    <a
+        class="whatsapp"
+        href="https://wa.me/923160682900?text=Assalam-o-Alaikum%20I%20want%20information%20about%20AZAM-UL-QURAN%20Online%20Academy."
+        target="_blank">
+
+        💬 Contact Us on WhatsApp
+
+    </a>
 
 </section>
 
-
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-<h3>AZAM-UL-QURAN Online Academy</h3>
+    <h3>
+        AZAM-UL-QURAN Online Academy
+    </h3>
 
-<p>Learn Quran • Live Quran • Spread Quran</p>
+    <p>
+        Learn Quran • Live Quran • Spread Quran
+    </p>
 
-<p>👨‍🏫 Teacher: Zubair</p>
+    <p>
+        👨‍🏫 Teacher: Zubair
+    </p>
 
-<p>📱 +92 316 0682900</p>
+    <p>
+        📱 +92 316 0682900
+    </p>
 
-<p>© 2026 AZAM-UL-QURAN Online Academy</p>
+    <p>
+        © 2026 AZAM-UL-QURAN Online Academy
+    </p>
 
 </footer>
 
-
-<!-- FLOATING WHATSAPP -->
+<!-- ================= FLOATING WHATSAPP ================= -->
 
 <a
-href="https://wa.me/923160682900?text=Assalam-o-Alaikum%20I%20want%20information%20about%20AZAM-UL-QURAN%20Online%20Academy."
-target="_blank"
-class="right-whatsapp"
->
-💬 WhatsApp
+    href="https://wa.me/923160682900?text=Assalam-o-Alaikum%20I%20want%20information%20about%20AZAM-UL-QURAN%20Online%20Academy."
+    target="_blank"
+    class="right-whatsapp">
+
+    💬 WhatsApp
+
 </a>
-
-
-<!-- JAVASCRIPT -->
 
 <script>
 
-const WHATSAPP = "923160682900";
+/* ================= MENU ================= */
 
+function toggleMenu(){
 
-/* WHATSAPP FUNCTION */
-
-function openWhatsApp(message){
-
-    const url =
-    "https://wa.me/" +
-    WHATSAPP +
-    "?text=" +
-    encodeURIComponent(message);
-
-    window.open(url,"_blank");
+    document
+        .getElementById("navLinks")
+        .classList
+        .toggle("active");
 
 }
 
+function closeMenu(){
 
-/* FEES */
+    document
+        .getElementById("navLinks")
+        .classList
+        .remove("active");
+
+}
+
+/* ================= WEBSITE ================= */
+
+const website =
+"https://azam-ul-quran.github.io/AZAM-UL-QURAN-Website/";
+
+/* ================= FEES ================= */
 
 const fees = {
 
@@ -1492,7 +1566,6 @@ const fees = {
 
 };
 
-
 const planNames = {
 
     2:"Plan A — 2 Days per Week",
@@ -1503,52 +1576,48 @@ const planNames = {
 
 };
 
-
-/* UPDATE FEE */
+/* ================= UPDATE FEE ================= */
 
 function updateFee(){
 
     const country =
-    document.getElementById("country").value;
+        document.getElementById("country").value;
 
     const days =
-    document.getElementById("days").value;
+        document.getElementById("days").value;
 
     const result =
-    document.getElementById("feeResult");
-
+        document.getElementById("feeResult");
 
     if(country && days){
 
-        document.getElementById("feeAmount").innerText =
-        fees[country][days];
+        document.getElementById("feeAmount")
+            .innerText =
+            fees[country][days];
 
-        document.getElementById("planText").innerText =
-        planNames[days];
+        document.getElementById("planText")
+            .innerText =
+            planNames[days];
 
-        result.style.display =
-        "block";
+        result.style.display="block";
 
     }else{
 
-        result.style.display =
-        "none";
+        result.style.display="none";
 
     }
 
 }
 
-
-/* SELECT PLAN */
+/* ================= SELECT PLAN ================= */
 
 function useSelectedPlan(){
 
     const country =
-    document.getElementById("country").value;
+        document.getElementById("country").value;
 
     const days =
-    document.getElementById("days").value;
-
+        document.getElementById("days").value;
 
     const countryNames = {
 
@@ -1564,275 +1633,246 @@ function useSelectedPlan(){
 
     };
 
-
     if(country && days){
 
-        document.getElementById("formCountry").value =
-        countryNames[country];
+        document.getElementById("formCountry")
+            .value =
+            countryNames[country];
 
-
-        document.getElementById("formDays").value =
-
-        days === "2"
-        ? "2 Days per Week"
-
-        : days === "3"
-        ? "3 Days per Week"
-
-        : "5 Days per Week";
+        document.getElementById("formDays")
+            .value =
+            days==="2"
+            ? "2 Days per Week"
+            : days==="3"
+            ? "3 Days per Week"
+            : "5 Days per Week";
 
     }
 
 }
 
-
-/* COURSE BUTTON */
+/* ================= COURSE ================= */
 
 function selectCourse(courseName){
 
-    document.getElementById("course").value =
-    courseName;
+    document.getElementById("course")
+        .value =
+        courseName;
 
     document.getElementById("admission")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 
 }
 
-
-/* FEATURES */
+/* ================= FEATURES ================= */
 
 function showFeature(type){
 
-    const messages = {
+    let message="";
 
-        trial:
-        "⭐ We offer a 3-Day Free Trial so you can experience our Quran classes before starting your regular plan.",
+    if(type==="trial"){
 
-        live:
-        "⏰ Our One-to-One Live Quran Classes are 30 minutes per class.",
+        message =
+        "⭐ We offer a 3-Day Free Trial so you can experience our Quran classes before starting your regular plan.";
 
-        free:
-        "🤲 A limited Free of Cost Quota is available for deserving students.",
+    }
 
-        teachers:
-        "👨‍🏫 Qualified Quran teachers are available. Teacher Zubair is a trainee from Umm Al Quran University, Kingdom of Saudi Arabia."
+    if(type==="live"){
 
-    };
+        message =
+        "⏰ Our One-to-One Live Quran Classes are 30 minutes per class.";
 
-    alert(messages[type]);
+    }
+
+    if(type==="free"){
+
+        message =
+        "🤲 A limited Free of Cost Quota is available for needy people and deserving students.";
+
+    }
+
+    if(type==="teachers"){
+
+        message =
+        "👨‍🏫 Qualified Quran teachers are available. Teacher Zubair is a trainee from Umm Al Quran University, Kingdom of Saudi Arabia.";
+
+    }
+
+    alert(message);
 
 }
 
-
-/* ADMISSION → WHATSAPP */
+/* ================= ADMISSION WHATSAPP ================= */
 
 function sendToWhatsApp(event){
 
     event.preventDefault();
 
-
     const studentName =
-    document.getElementById("studentName").value;
+        document.getElementById("studentName").value;
 
     const parentName =
-    document.getElementById("parentName").value;
+        document.getElementById("parentName").value;
 
     const phone =
-    document.getElementById("phone").value;
+        document.getElementById("phone").value;
 
     const email =
-    document.getElementById("email").value;
+        document.getElementById("email").value;
 
     const course =
-    document.getElementById("course").value;
+        document.getElementById("course").value;
 
     const country =
-    document.getElementById("formCountry").value;
+        document.getElementById("formCountry").value;
 
     const days =
-    document.getElementById("formDays").value;
+        document.getElementById("formDays").value;
 
     const message =
-    document.getElementById("message").value;
-
+        document.getElementById("message").value;
 
     const whatsappMessage =
-
 `Assalam-o-Alaikum! 🌙
 
 AZAM-UL-QURAN Online Academy
+New Admission Request 🎓
 
-🎓 NEW ADMISSION REQUEST
+Student Name: ${studentName}
 
-Student Name:
-${studentName}
+Parent / Guardian Name: ${parentName}
 
-Parent / Guardian Name:
-${parentName}
+Phone Number: ${phone}
 
-Phone Number:
-${phone}
+Email Address: ${email}
 
-Email Address:
-${email}
+Selected Course: ${course}
 
-Selected Course:
-${course}
+Country / Region: ${country || "Not selected"}
 
-Country / Region:
-${country || "Not selected"}
-
-Classes Per Week:
-${days || "Not selected"}
+Classes Per Week: ${days || "Not selected"}
 
 Message:
 ${message || "No message"}
 
+Website:
+${website}
+
 Teacher: Zubair
+Trainee from Umm Al Quran University, Kingdom of Saudi Arabia`;
 
-Trainee from Umm Al Quran University,
-Kingdom of Saudi Arabia`;
+    const url =
+        "https://wa.me/923160682900?text=" +
+        encodeURIComponent(whatsappMessage);
 
-
-    openWhatsApp(whatsappMessage);
+    window.open(url,"_blank");
 
 }
 
-
-/* REVIEW → WHATSAPP */
+/* ================= REVIEW ================= */
 
 function submitReview(event){
 
     event.preventDefault();
 
-
     const name =
-    document.getElementById("reviewName").value;
+        document.getElementById("reviewName").value;
 
     const type =
-    document.getElementById("reviewType").value;
+        document.getElementById("reviewType").value;
 
     const review =
-    document.getElementById("reviewText").value;
+        document.getElementById("reviewText").value;
 
-    const selectedRating =
-    document.querySelector(
-        'input[name="rating"]:checked'
-    );
-
+    const selected =
+        document.querySelector(
+            'input[name="rating"]:checked'
+        );
 
     const rating =
-    selectedRating
-    ? selectedRating.value
-    : "0";
-
-
-    const stars =
-    "★".repeat(Number(rating));
-
+        selected
+        ? selected.value
+        : "0";
 
     const whatsappMessage =
-
 `Assalam-o-Alaikum! 🌙
 
 AZAM-UL-QURAN Online Academy
+New ${type} Review ⭐
 
-⭐ NEW ${type.toUpperCase()} REVIEW
+Name: ${name}
 
-Name:
-${name}
-
-Rating:
-${stars} (${rating}/5)
+Rating: ${rating}/5 ⭐
 
 Review:
-${review}`;
+${review}
 
+Website:
+${website}`;
 
-    /*
-       Save thank-you state.
-       It remains after page refresh.
-    */
+    const url =
+        "https://wa.me/923160682900?text=" +
+        encodeURIComponent(whatsappMessage);
 
     localStorage.setItem(
-        "azamReviewSubmitted",
-        "yes"
+        "reviewThankYou",
+        "true"
     );
-
 
     document.getElementById(
         "reviewThankYou"
-    ).style.display =
-    "block";
+    ).style.display="block";
 
-
-    openWhatsApp(
-        whatsappMessage
-    );
+    window.open(url,"_blank");
 
 }
 
+/* ================= COMMENT ================= */
 
-/* FAQ TOGGLE */
-
-function toggleFAQ(button){
-
-    button.classList.toggle(
-        "active"
-    );
-
-}
-
-
-/* FAQ QUESTION → WHATSAPP */
-
-function submitQuestion(event){
+function submitComment(event){
 
     event.preventDefault();
 
-
     const name =
-    document.getElementById(
-        "questionName"
-    ).value;
+        document.getElementById("commentName").value;
 
-    const question =
-    document.getElementById(
-        "questionText"
-    ).value;
-
+    const comment =
+        document.getElementById("commentText").value;
 
     const whatsappMessage =
-
 `Assalam-o-Alaikum! 🌙
 
 AZAM-UL-QURAN Online Academy
+New Comment / Feedback 💬
 
-❓ NEW QUESTION / COMMENT
+Name: ${name}
 
-Name:
-${name}
+Comment:
+${comment}
 
-Question / Comment:
-${question}`;
+Website:
+${website}`;
 
+    const url =
+        "https://wa.me/923160682900?text=" +
+        encodeURIComponent(whatsappMessage);
+
+    localStorage.setItem(
+        "commentThankYou",
+        "true"
+    );
 
     document.getElementById(
-        "faqSuccess"
-    ).style.display =
-    "block";
+        "commentThankYou"
+    ).style.display="block";
 
-
-    openWhatsApp(
-        whatsappMessage
-    );
+    window.open(url,"_blank");
 
 }
 
-
-/* KEEP REVIEW THANK-YOU AFTER REFRESH */
+/* ================= THANK YOU AFTER REFRESH ================= */
 
 window.addEventListener(
     "DOMContentLoaded",
@@ -1840,14 +1880,25 @@ window.addEventListener(
 
         if(
             localStorage.getItem(
-                "azamReviewSubmitted"
-            ) === "yes"
+                "reviewThankYou"
+            ) === "true"
         ){
 
             document.getElementById(
                 "reviewThankYou"
-            ).style.display =
-            "block";
+            ).style.display="block";
+
+        }
+
+        if(
+            localStorage.getItem(
+                "commentThankYou"
+            ) === "true"
+        ){
+
+            document.getElementById(
+                "commentThankYou"
+            ).style.display="block";
 
         }
 
